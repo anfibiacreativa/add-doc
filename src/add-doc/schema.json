@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "@scullyio/init:post",
+  "title": "Scully: Add a blog post schematic",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "add the title for the post",
+      "default": "doc-X"
+    },
+    "title": {
+      "type": "string",
+      "description": "add the title for the doc",
+      "x-prompt": "What's the title of this doc?",
+      "default": "doc-X"
+    },
+    "target": {
+      "type": "string",
+      "description": "define the target directory for the new post file",
+      "x-prompt": "What is the target folder for your docs?",
+      "default": "docs"
+    },
+    "extension": {
+      "type": "string",
+      "description": "define the file extension for the target file",
+      "default": "md"
+    },
+    "metaDataFile": {
+      "type": "string",
+      "description": "use a meta data template file that's data will be added to the post",
+      "default": ""
+    }
+  },
+  "required": ["title"]
+}

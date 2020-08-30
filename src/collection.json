@@ -1,0 +1,11 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "add-doc": {
+      "description": "A blank schematic.",
+      "factory": "./add-doc/index#addDoc",
+      "aliases": ["doc"],
+      "schema": "./add-doc/schema.json"
+    }
+  }
+}
