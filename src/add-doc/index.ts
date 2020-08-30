@@ -48,7 +48,7 @@ export function addDoc(_options: any): Rule {
           index = `0${newIndex}`;
         }
         // We increment index name so we have an ordered list for the sidenav
-         // We want to make sure the mandatory name option of the post schematic is satisfied
+        // We want to make sure the mandatory name option of the post schematic is satisfied
         _options.name = `${index}${_options.title}`;
       } else {
         // Even if the folder did not exist or was empty before, we need to satisfy this
