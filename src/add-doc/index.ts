@@ -12,22 +12,6 @@ export function addDoc(_options: any): Rule {
       _options.target = 'docs';
       const target = tree.getDir(_options.target);
 
-    /*       
-      
-      if (!target) {
-        _context.logger.warn('I did not find the target folder docs, so I am creating it!. Please try again!');
-        
-        const source = apply(url('./files'), [
-          template({
-            ...strings,
-            ..._options,
-          }),
-        ]);
-
-        const chained = chain([branchAndMerge(chain([mergeWith(source)]))]);
-        return chained(tree, _context);
-      } */
-
       const indices: number[] = [];
 
       target.visit(file => {
