@@ -7,12 +7,12 @@
     "name": {
       "type": "string",
       "description": "add the title for the post",
+      "x-prompt": "What's the title of this doc?",
       "default": "doc-X"
     },
     "title": {
       "type": "string",
       "description": "add the title for the doc",
-      "x-prompt": "What's the title of this doc?",
       "default": "doc-X"
     },
     "target": {
@@ -32,5 +32,5 @@
       "default": ""
     }
   },
-  "required": ["title"]
+  "required": ["name"]
 }

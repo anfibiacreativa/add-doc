@@ -4,13 +4,15 @@ import { basename } from 'path';
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
-export function addDoc(_options: any): Rule {
+export function addDoc(options: any): Rule {
   return chain([
     chain([ (tree: Tree, _context: SchematicContext) => {
      
       // We want to override the blog default target folder of post, by docs
-      _options.target = 'docs';
-      const target = tree.getDir(_options.target);
+      options.target = 'docs';
+      const target = tree.getDir(options.target);
+      options.title = options.name || 'doc-X';
+      options.description = 'doc description';
 
       const indices: number[] = [];
 
@@ -26,22 +28,18 @@ export function addDoc(_options: any): Rule {
         let newIndex = ++maxIndex;
         let index = newIndex.toString();
 
-        if (index.length === 1) {
-          index = `00${newIndex}`;
-        } else {
-          index = `0${newIndex}`;
-        }
+        const _index = index.length === 1 ? `00${newIndex}` : index = `0${newIndex}`;
+
         // We increment index name so we have an ordered list for the sidenav
         // We want to make sure the mandatory name option of the post schematic is satisfied
-        _options.name = `${index}${_options.title}`;
+        options.name = `${_index}${options.title}`;
       } else {
         // Even if the folder did not exist or was empty before, we need to satisfy this
-        _options.name = `000${_options.title}`;
-        _context.logger.warn('Do not forget to add a homepage to your site!');
+        options.name = `000${options.title}`;
       }
       return tree;
     },
-    externalSchematic('@scullyio/init','post', _options)
+    externalSchematic('@scullyio/init','post', options)
     ])
   ])
 }

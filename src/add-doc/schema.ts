@@ -10,7 +10,7 @@ export interface Schema {
   /**
    * add the title for the doc post
    */
-  title: string;
+  title?: string;
   /**
    * define the target directory for the new post file
    */
