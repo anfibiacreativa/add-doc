@@ -26,10 +26,11 @@
       "description": "define the file extension for the target file",
       "default": "md"
     },
-    "metaDataFile": {
+    "description": {
       "type": "string",
       "description": "use a meta data template file that's data will be added to the post",
-      "default": ""
+      "x-prompt": "What is the description for this post?",
+      "default": "document description"
     }
   },
   "required": ["name"]

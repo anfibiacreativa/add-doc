@@ -1,10 +1,11 @@
 import { Rule, SchematicContext, Tree, chain, externalSchematic } from '@angular-devkit/schematics';
 // import { strings } from '@angular-devkit/core';
 import { basename } from 'path';
+import { Schema } from './schema';
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
-export function addDoc(options: any): Rule {
+export function addDoc(options: Schema): Rule {
   return chain([
     chain([ (tree: Tree, _context: SchematicContext) => {
      
@@ -14,10 +15,11 @@ export function addDoc(options: any): Rule {
       options.title = options.name || 'doc-X';
       options.description = 'doc description';
 
+      // Let's create an array to push the generated files to
       const indices: number[] = [];
 
       target.visit(file => {
-        // let's just het the index of the last doc created to order the sidenav
+        // Now let's just get the index of the last doc created to order the sidenav
         let fileName = basename(file);
         let fileIndex = parseInt(fileName.substring(0,3), 10);
         indices.push(fileIndex || 0o0);

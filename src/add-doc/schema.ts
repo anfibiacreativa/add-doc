@@ -20,7 +20,7 @@ export interface Schema {
    */
   extension?: string;
   /**
-   * use a meta data template file that's data will be added to the post
+   * override the post description
    */
-  metaDataFile?: string;
+  description?: string;
 }
